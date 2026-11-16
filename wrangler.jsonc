@@ -2,6 +2,11 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "cya",
   "main": "dist/server/index.js",
-  "compatibility_date": "2026-11-17",
-  "workers_dev": true
+  "compatibility_date": "2026-11-16",
+  "workers_dev": false,
+  "preview_urls": false,
+  "vars": {
+    "RSVP_FROM": "Carmen y Alfonso <boda@carmenyalfonso.com>",
+    "RSVP_TO_EMAIL": "sulivan22@gmail.com"
+  }
 }
