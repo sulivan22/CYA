@@ -1,2 +1,18 @@
 .locations-list{width:100%;padding:0 0 4px;display:flex;flex-direction:column;gap:15px}.location-card{margin:0 auto}.location-card address{font-style:normal;font-size:15px;line-height:1.55;color:#716755}.reception-card{border-color:#d1c8b5}.choice-group{border:0;margin:23px 0 0;padding:0}.choice-group legend{width:100%;padding:0 0 7px;color:var(--olive);font:15px/1.45 var(--hand)}.choice-group legend span{font-size:12px;color:#8d7f6a}.choice-options{display:flex;flex-direction:column;gap:2px}.choice-option{display:flex;align-items:center;gap:11px;min-height:42px;margin:0!important;padding:4px 2px;color:var(--ink)!important;font:15px/1.4 var(--hand)!important}.choice-option input[type=radio],.choice-option input[type=checkbox]{flex:0 0 18px;width:18px;height:18px;margin:0;accent-color:#87906c}.return-bus{padding-top:3px}.return-bus .choice-options{gap:0}@media(min-width:700px){.locations-list{gap:18px}.choice-options{gap:4px}}
 .form-trap{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}
+
+/* Thank-you card: native dialog keeps keyboard focus inside while open. */
+html.confirmation-open{overflow:hidden}
+.confirmation-dialog{position:fixed;inset:0;width:calc(100% - 32px);max-width:390px;max-height:calc(100dvh - 32px);margin:auto;padding:28px 26px 26px;overflow:auto;text-align:center;color:var(--ink);border:1px solid var(--line);border-radius:18px 18px 70px 18px;background:radial-gradient(ellipse at top left,#fff9,transparent 70%),var(--paper);box-shadow:0 18px 65px #40352835;font-family:var(--hand)}
+.confirmation-dialog::backdrop{background:#403b2c80;backdrop-filter:blur(4px)}
+.confirmation-dialog[open]{animation:confirmation-arrive .3s ease-out}
+.confirmation-close{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--ink);font:28px var(--hand);cursor:pointer}
+.confirmation-heart{display:block;width:180px;max-width:75%;height:auto;margin:0 auto 4px}
+.confirmation-eyebrow{margin:0 0 8px;color:#626b4d;font-size:11px;letter-spacing:.18em}
+.confirmation-dialog h2{margin:0;color:var(--rust);font:38px/1.15 var(--script)}
+#confirmation-message{margin:18px auto 0;max-width:290px;font-size:18px;line-height:1.55}
+.confirmation-signature{margin:20px 0;color:var(--rust);font:28px var(--script)}
+.confirmation-done{min-width:140px;min-height:46px;padding:10px 24px;border:1px solid #727c58;border-radius:7px;background:#727c58;color:#fff;font:17px var(--hand);cursor:pointer}
+.confirmation-dialog button:focus-visible{outline:2px solid var(--rust);outline-offset:4px}
+@keyframes confirmation-arrive{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.confirmation-dialog[open]{animation:none}}
