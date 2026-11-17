@@ -1,4 +1,4 @@
-import { readdir, readFile, mkdir, writeFile, copyFile } from "node:fs/promises";
+import { readdir, readFile, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -46,9 +46,6 @@ const template = await readFile(templatePath, "utf8");
 if (!template.includes("__ASSET_MAP__")) throw new Error("No se encontró el marcador de recursos del Worker.");
 
 const serverDir = path.join(dist, "server");
-const openaiDir = path.join(dist, ".openai");
 await mkdir(serverDir, { recursive: true });
-await mkdir(openaiDir, { recursive: true });
 await writeFile(path.join(serverDir, "index.js"), template.replace("__ASSET_MAP__", JSON.stringify(assets)));
-await copyFile(path.join(root, ".openai/hosting.json"), path.join(openaiDir, "hosting.json"));
 console.log("Prepared the wedding site Worker and bundled static pages.");

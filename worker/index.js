@@ -166,7 +166,7 @@ export default {
       "content-type": asset.type,
       "x-content-type-options": "nosniff",
       "referrer-policy": "strict-origin-when-cross-origin",
-      "cache-control": asset.type.startsWith("text/html") ? "no-cache" : "public, max-age=3600",
+      "cache-control": /^(text\/|application\/javascript)/.test(asset.type) ? "no-cache" : "public, max-age=3600",
     });
     return new Response(request.method === "HEAD" ? null : bytes, { headers });
   },
